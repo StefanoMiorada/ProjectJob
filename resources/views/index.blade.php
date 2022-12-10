@@ -42,6 +42,19 @@ JobCamonica Homepage
 @endsection
 
 @section('corpo')
+@if (session()->has('successEdit'))
+<script>
+    swal.fire("{{ trans('labels.okMessage') }}","{{ trans('labels.okMessageEdit') }}","success");
+</script>
+@elseif (session()->has('successCreate'))
+<script>
+    swal.fire("{{ trans('labels.okMessage') }}","{{ trans('labels.okMessageCreate') }}","success");
+</script>
+@elseif (session()->has('successNewUser'))
+<script>
+    swal.fire("{{ trans('labels.okMessage') }}","Utente creato in modo corretto","success");
+</script>
+@endif
 <!--Sezione logo e scritta principale-->
 
 <div class="container-fluid mb-5">

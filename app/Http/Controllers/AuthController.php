@@ -57,13 +57,17 @@ class AuthController extends Controller
     }
 
     public function registration(Request $request) {
+        session_start();
         $dl = new DataLayer();
 
         if($request->input('password')===$request->input('confirm-password')){
             $dl->addUser($request->input('username'), $request->input('password'), 
                         $request->input('email'),$request->input('nome'),$request->input('cognome'),
                         $request->input('nome_azienda'),$request->input('is_azienda'));
-            return Redirect::to(route('user.login',['source' =>'home']));
+            $_SESSION['logged'] = true;
+            $_SESSION['loggedName'] = $request->input('username');
+            Session::flash('successNewUser', 'Here is your success message');
+            return Redirect::to(route('home'));
         }
         else{
             return view('auth.authErrorPage'); 
