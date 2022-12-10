@@ -29,10 +29,10 @@
         <div class="col-md-6 ">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="login-form-tab" data-bs-toggle="tab" href="#login-form-pane" role="tab" aria-controls="login-form-pane" aria-selected="true">Login</a>
+                    <a class="nav-link active" id="login-form-tab" data-bs-toggle="tab" href="#login-form-pane" role="tab" aria-controls="login-form-pane" aria-selected="true">{{ trans('labels.login') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="register-form-tab" data-bs-toggle="tab" href="#register-form-pane" role="tab" aria-controls="register-form-pane" aria-selected="false">Register</a>
+                    <a class="nav-link" id="register-form-tab" data-bs-toggle="tab" href="#register-form-pane" role="tab" aria-controls="register-form-pane" aria-selected="false">{{ trans('labels.registrati') }}</a>
                 </li>
             </ul>
             <div class="tab-content" id="login-registration-form">
@@ -60,8 +60,13 @@
                         <div class="row">
                             <button type="submit" name="login-submit" class="btn btn-primary">{{ trans('labels.login') }}</button> 
                         </div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <a href="#">{{ trans('labels.forgotPassword') }}</a>
+                            </div>
+                        </div>
                         <div class="text-center">
-                            <a href="{{ route('home')}}">Back home</a>
+                            <a href="{{ route('home')}}">{{ trans('labels.tornaIndietro') }}</a>
                         </div>
                     </form>
                 </div>    
@@ -74,12 +79,14 @@
                             <label class="form-check-label" for="utente_generico">
                                 Utente generico
                             </label>
+                            <button type="button" class="btn bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="per 'Utente Generico' si intende una persona che utilizzerà JobCamonica con lo scopo di consultare offerte di lavoro e candidarsi ad esse, se intendi inserire annunci di lavoro seleziona 'Azienda'"></button>
                         </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="radio" name="is_azienda" id="utente_azienda" value="1" onclick="formRegistrazioneAzienda();">
                             <label class="form-check-label" for="utente_azienda">
                                 Azienda
                             </label>
+                            <button type="button" class="btn bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="per 'Azienda' si intende un utente che utilizzerà JobCamonica con lo scopo di inserire annunci di lavoro e consultare le candidature ricevute, se intendi candidarti a delel offerte di lavoro selezione 'utente generico'"></button>
                         </div>
                         <div class="row mb-3">
                             <input type="text" id="username" name="username" class="form-control" placeholder="Username" required/>
@@ -125,7 +132,7 @@
 
                         <div class="row mb-3">
                             <div class="text-center">
-                                <a href="{{ route('home')}}">Back home</a>
+                                <a href="{{ route('home')}}">{{ trans('labels.tornaIndietro') }}</a>
                             </div>
                         </div>
                     </form>
