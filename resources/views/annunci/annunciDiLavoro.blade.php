@@ -113,7 +113,7 @@ Annunci di lavoro
                 </td>
                 <td class="col-1">
                     @if($logged==false)
-                        <a type="button" class="btn btn-outline-primary" href="{{ route('user.login',['source' =>'annunci']) }}"><i class="bi bi-box-arrow-up-right"></i> {{ trans('labels.candidati') }}</a>
+                        <a type="button" class="btn btn-outline-primary" href="{{ route('user.login',['source' =>'annunci', 'message'=>'True']) }}"><i class="bi bi-box-arrow-up-right"></i> {{ trans('labels.candidati') }}</a>
                     @else
                         @if($is_azienda==0)
                             <a type="button" class="btn btn-outline-primary" href="{{ route('annuncio.candidati',['id'=>$annuncio->id]) }}"><i class="bi bi-box-arrow-up-right"></i> {{ trans('labels.candidati') }}</a>

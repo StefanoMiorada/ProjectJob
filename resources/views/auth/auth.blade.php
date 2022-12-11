@@ -27,6 +27,11 @@
 <body>
     <div class="vh-100 d-flex align-items-center justify-content-center">  
         <div class="col-md-6 ">
+            <div>
+                @if(isset($message))
+                <h4>{{$message}}</h4>
+                @endif
+            </div>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="login-form-tab" data-bs-toggle="tab" href="#login-form-pane" role="tab" aria-controls="login-form-pane" aria-selected="true">{{ trans('labels.login') }}</a>
@@ -68,7 +73,11 @@
                             </div>
                         </div>
                         <div class="text-center">
+                            @if($source == "annunci")  
+                            <a href="{{ route('annunci.index')}}">{{ trans('labels.tornaIndietro') }}</a>
+                            @else
                             <a href="{{ route('home')}}">{{ trans('labels.tornaIndietro') }}</a>
+                            @endif
                         </div>
                     </form>
                 </div>    

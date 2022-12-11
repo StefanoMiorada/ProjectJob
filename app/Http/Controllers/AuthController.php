@@ -8,15 +8,19 @@ use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends Controller
 {
-    public function authentication($source) {
+    public function authentication($source,$message=null) {
 
        // if(isset($source)){
             if($source == "paginaAzienda"){
             return view('auth.auth')->with('source','paginaAzienda');
             }
-            if($source == 'annunci'){
+            if ($source == 'annunci' & $message=='True'){
+                return view('auth.auth')->with('source','annunci')->with('message','Per poterti candidare ad un annuncio devi effettuare il login.');
+            }
+            elseif($source == 'annunci'){
                 return view('auth.auth')->with('source','annunci');
             }  
+            
             if($source == 'home'){
                 return view('auth.auth')->with('source','home');
             }  
@@ -31,7 +35,7 @@ class AuthController extends Controller
         return Redirect::to(route('home'));
     }
 
-    public function login(Request $request,$source) {
+    public function login(Request $request,$source,$message=null) {
          session_start();
          $dl = new DataLayer();
   
