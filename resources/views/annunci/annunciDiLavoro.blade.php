@@ -70,6 +70,8 @@ Annunci di lavoro
     </div> 
     
 </div>
+<!-- Bottone scrollToTop -->
+<button class=" btn bi bi-arrow-up-square btn-lg" onclick="topFunction()" id="ScrollToTop" ></button>
 
 <div class="container-fluid mb-5">
     <div class="row">
@@ -174,6 +176,23 @@ $(document).ready(function(){
     });
 });
 </script>
-
+<!-- Scroll To Top Button -->
+<script>
+let mybutton = document.getElementById("ScrollToTop");
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
 
 @endsection

@@ -48,6 +48,9 @@
     swal.fire("{{ trans('labels.okMessage') }}","{{ trans('labels.okMessageCreate') }}","success");
 </script>
 @endif
+<!-- Bottone scrollToTop -->
+<button class=" btn bi bi-arrow-up-square btn-lg" onclick="topFunction()" id="ScrollToTop" ></button>
+
 <div class="container-fluid mb-5">
         <div class="container text-center mb-5">
             <a type="button" class="btn btn-outline-primary" href="{{route('annunci.create')}}"><i class="bi bi-plus-square"></i> {{ trans('labels.aggiungiNuovoAnnuncio') }}</a>
@@ -70,7 +73,7 @@
                 </div>
             <div class="row mt-2">
                 <div class="col text-center">
-                    <button id="button_ricerca" type="button" class="btn btn-outline-primary"><i class="bi bi-search"></i> {{ trans('labels.cerca') }}</button>
+                    <button id="button_ricerca" type="button" onclick="myFunction()" class="btn btn-outline-primary"><i class="bi bi-search"></i> {{ trans('labels.cerca') }}</button>
                     <button id="reset_ricerca" type="button" class="btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Reset</button>
                 </div>
             </div> 
@@ -97,6 +100,12 @@
                 </td>
             </tr>
             <tr>
+                <td style="display:none;"><div><h3><b>{{ $annuncio->posizione }}</b></h3></div>
+                    <div><i class="bi bi-geo-alt"></i> {{ $annuncio->luogo }}</div>
+                    <div>{{ $annuncio->dettagli }}</div>
+                    <div>{{ $annuncio->richieste }}</div>
+                    <div><b><i>{{ trans('labels.contratto' )}}</i></b> {{ $annuncio->tipo_contratto }}</div>
+                </td>
                 <td colspan="2">{{ trans('labels.candidature')}}: {{$annuncio->candidature_annuncio()->count()}}</td>
             </tr>
             @endforeach
@@ -114,15 +123,41 @@
 </script>
 <!-- filtro con area di input e bottone -->
 <script>
-$(document).ready(function(){
-    $("#button_ricerca").on("click", function() {
-        var value = $("#ricerca").val().toLowerCase();
-        $("#tabellaAnnunciAzienda tr").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        });
-    });
-});
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("ricerca");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tabellaAnnunciAzienda");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
 </script>
+<!-- Scroll To Top Button -->
 <script>
+let mybutton = document.getElementById("ScrollToTop");
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 </script>
 @endsection
