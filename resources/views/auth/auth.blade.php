@@ -116,14 +116,14 @@
                             <label class="form-check-label" for="utente_generico">
                                 Utente generico
                             </label>
-                            <button type="button" class="btn bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="per 'Utente Generico' si intende una persona che utilizzerà JobCamonica con lo scopo di consultare offerte di lavoro e candidarsi ad esse, se intendi inserire annunci di lavoro seleziona 'Azienda'"></button>
+                            <button type="button" class="btn bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Per 'Utente Generico' si intende una persona che utilizzerà JobCamonica con lo scopo di consultare offerte di lavoro e candidarsi ad esse, se intendi inserire annunci di lavoro seleziona 'Azienda'"></button>
                         </div>
                         <div class="form-check mb-3">
                             <input class="form-check-input" type="radio" name="is_azienda" id="utente_azienda" value="1" onclick="formRegistrazioneAzienda();">
                             <label class="form-check-label" for="utente_azienda">
                                 Azienda
                             </label>
-                            <button type="button" class="btn bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="per 'Azienda' si intende un utente che utilizzerà JobCamonica con lo scopo di inserire annunci di lavoro e consultare le candidature ricevute, se intendi candidarti a delel offerte di lavoro selezione 'utente generico'"></button>
+                            <button type="button" class="btn bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Per 'Azienda' si intende un utente che utilizzerà JobCamonica con lo scopo di inserire annunci di lavoro e consultare le candidature ricevute, se intendi candidarti a delel offerte di lavoro selezione 'utente generico'"></button>
                         </div>
                         <div class="row mb-3">
                             <input type="text" id="username" name="username" class="form-control" placeholder="Username" required/>

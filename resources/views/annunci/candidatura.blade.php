@@ -18,7 +18,7 @@
     <a class="nav-link active" aria-current="page" href="{{ route('annunci.index') }}">{{ trans('labels.annunciDiLavoro') }}</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link " href="{{ route('paginaAzienda.index') }}">{{ trans('labels.paginaPersonaleAzienda') }}</a>
+    <a class="nav-link " href="{{ route('candidature.index') }}">Area Personale</a>
 </li>
 @endsection
 

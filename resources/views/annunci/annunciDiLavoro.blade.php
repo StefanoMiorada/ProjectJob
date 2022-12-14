@@ -71,7 +71,7 @@ Annunci di lavoro
     
 </div>
 <!-- Bottone scrollToTop -->
-<button class=" btn bi bi-arrow-up-square btn-lg" onclick="topFunction()" id="ScrollToTop" ></button>
+<button class=" btn bi bi-arrow-up-square fs-1" onclick="topFunction()" id="ScrollToTop" ></button>
 
 <div class="container-fluid mb-5">
     <div class="row">
