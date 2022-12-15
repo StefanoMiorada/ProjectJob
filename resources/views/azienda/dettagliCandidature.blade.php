@@ -64,16 +64,22 @@
     <table class="table" id="TabellaCandidature">
     @foreach($dettagliUtentiCandidature as $candidatura)
     <tr>
-        <td class="col-8" style="word-wrap: break-word;min-width: 160px;max-width: 160px;white-space:normal;"> 
+        <td> 
             <div><h3><b>Candidato: </b>{{ $candidatura->nome }} {{ $candidatura->cognome }}</h3></div>
-            <div><b>{{ trans('labels.emailCandidato') }} </b>{{ $candidatura->email }}</div>
-            <div><b>{{ trans('labels.letteraMotivazionale') }} </b><?php echo ($candidatura->lettera_motivazionale)?></div>
-            
-            <div><b>CV:</b>
-                <a href="#" onClick="window.open('{{ asset('storage/files/'.$candidatura->cv_path) }}'); return false;">{{ $candidatura->cv_path }}</a>
-                <a type ="button" class=" btn bi bi-eye btn-lg fs-3" onClick="window.open('{{ asset('storage/files/'.$candidatura->cv_path) }}'); return false;"></a>
-                <a type="button" class=" btn bi bi-download btn-lg fs-3" href="{{ asset('storage/files/'.$candidatura->cv_path) }}" download></a>
-            </div>        
+            <div class="row pt-2">
+                <div class="col-3"><b>{{ trans('labels.emailCandidato') }} </b></div><div class="col-7">{{ $candidatura->email }}</div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-3"><b>{{ trans('labels.letteraMotivazionale') }} </b></div><div class="col-7"><?php echo ($candidatura->lettera_motivazionale)?></div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-3 d-flex aligns-items-center " ><b>Curriculum Vitae: </b></div>
+                <div class="col-7">
+                    <a href="#" onClick="window.open('{{ asset('storage/files/'.$candidatura->cv_path) }}'); return false;">{{ $candidatura->cv_path }}</a>
+                    <a type ="button" class=" btn bi bi-eye fs-4" onClick="window.open('{{ asset('storage/files/'.$candidatura->cv_path) }}'); return false;"></a>
+                    <a type="button" class=" btn bi bi-download fs-4" href="{{ asset('storage/files/'.$candidatura->cv_path) }}" download></a>
+                </div>
+            </div>       
         </td>
     </tr>
     @endforeach

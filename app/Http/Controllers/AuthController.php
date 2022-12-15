@@ -77,6 +77,11 @@ class AuthController extends Controller
             return view('auth.authErrorPage'); 
         }
     }
+    public function recuperaPassword(){
+        session_start();
+        Session::flash('successRecupero', 'Here is your success message');
+        return Redirect::to(route('home'));
+    }
 
     public function ajaxCheckUsername(Request $request){
         $dl = new DataLayer();
@@ -89,4 +94,6 @@ class AuthController extends Controller
         }
         return response()->json($response);
     }
+
+    
 }

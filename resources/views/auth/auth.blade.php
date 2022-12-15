@@ -99,7 +99,7 @@
                                     <input type="email" id="typeEmail" class="form-control my-3" placeholder="Inserisci l'email"/>
                                     
                                 </div>
-                                <a href="#" class="btn btn-primary w-100">Recupera password</a>
+                                <a href="{{ route('recuperaPassword')}}" class="btn btn-primary w-100">Recupera password</a>
                                 <div class="d-flex justify-content-end mt-4">
                                     <a class="" href="{{route('home')}}">Home</a>
                                 </div>

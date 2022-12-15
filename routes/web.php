@@ -28,6 +28,7 @@ Route::middleware(['lang'])->group(function () {
     Route::get('/user/login/{source}/{message?}', [AuthController::class, 'authentication'])->name('user.login');
     Route::post('/user/login/{source}/{message?}', [AuthController::class, 'login'])->name('user.login');
     
+    Route::get('/user/recuperaPassword', [AuthController::class, 'recuperaPassword'])->name('recuperaPassword');
     Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout');
     Route::post('/user/register', [AuthController::class, 'registration'])->name('user.register');
     Route::resource('/paginaAzienda', ControllerPaginaAzienda::class);

@@ -54,6 +54,10 @@ JobCamonica Homepage
 <script>
     swal.fire("{{ trans('labels.okMessage') }}","Utente creato in modo corretto","success");
 </script>
+@elseif (session()->has('successRecupero'))
+<script>
+    swal.fire("{{ trans('labels.okMessage') }}","E' stata inviata un mail con le istruzioni per il recupero della password all'indirizzo indicato","success");
+</script>
 @endif
 <!--Sezione logo e scritta principale-->
 
