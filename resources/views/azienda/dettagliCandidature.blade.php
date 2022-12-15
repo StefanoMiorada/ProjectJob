@@ -37,12 +37,22 @@
 
 @section('corpo')
 <!-- Bottone scrollToTop -->
-<button class=" btn bi bi-arrow-up-square btn-lg" onclick="topFunction()" id="ScrollToTop" ></button>
+<button class=" btn bi bi-arrow-up-square btn-lg fs-1" onclick="topFunction()" id="ScrollToTop" ></button>
 
 <div class="container text-center mb-5">
     <p><h3>{{ trans('labels.annuncioDiRiferimento') }} <b>{{ $annuncio->posizione }}</b></h3></p>
     <p><h3>{{ trans('labels.candidatureRicevute') }} <b>{{ $dettagliUtentiCandidature->count() }}</b></h3></p>
     <a type="button" class="btn btn-outline-primary" href="{{ route('paginaAzienda.index') }}"><i class="bi bi-box-arrow-left"></i> {{ trans('labels.tornaIndietro') }}</a>
+</div>
+<!-- area di ricerca -->
+<div class="row">
+    <div class="col-md-6 offset-md-2">
+        <input type="text" id="ricerca" class="form-control" placeholder="Ricerca per nome, cognome o parola">
+    </div>
+    <div class="col-md-3">
+        <a id="button_ricerca" type="button" class="btn btn-outline-primary"><i class="bi bi-search"></i> {{ trans('labels.cerca') }}</a>
+        <a id="reset_ricerca" type="button" class="btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Reset</a>
+    </div>
 </div>
 <hr>
 @if ($dettagliUtentiCandidature->count() == 0)
@@ -50,19 +60,20 @@
     <h3>{{ trans('labels.nessunaCandidatura') }}</h3>
 </div>
 @else
-<div class="col-md-12 text-left">
-    <table class="table table-secondary table-hover">
+<div class="col-md-10 text-left offset-md-1">
+    <table class="table" id="TabellaCandidature">
     @foreach($dettagliUtentiCandidature as $candidatura)
     <tr>
-        <td>
-            <table class="table table-light ">
-                <tr><td><b>{{ trans('labels.usernameCandidato') }}</b> {{ $candidatura->username }}</td></tr>
-                <tr><td><b>{{ trans('labels.nomeCandidato') }}</b> {{ $candidatura->nome }}</td></tr>   
-                <tr><td><b>{{ trans('labels.cognomeCandidato') }}</b> {{ $candidatura->cognome }}</td></tr>
-                <tr><td><b>{{ trans('labels.emailCandidato') }}</b> {{ $candidatura->email }}</td></tr>
-                <tr><td><b>{{ trans('labels.letteraMotivazionale') }}</b> {{ $candidatura->lettera_motivazionale }}</td></tr>
-                <tr><td><b>CV:</b> <a href="#" onClick="window.open('{{ asset('storage/files/'.$candidatura->cv_path) }}'); return false;">{{ $candidatura->cv_path }}</a></td></tr>
-            </table>
+        <td class="col-8" style="word-wrap: break-word;min-width: 160px;max-width: 160px;white-space:normal;"> 
+            <div><h3><b>Candidato: </b>{{ $candidatura->nome }} {{ $candidatura->cognome }}</h3></div>
+            <div><b>{{ trans('labels.emailCandidato') }} </b>{{ $candidatura->email }}</div>
+            <div><b>{{ trans('labels.letteraMotivazionale') }} </b><?php echo ($candidatura->lettera_motivazionale)?></div>
+            
+            <div><b>CV:</b>
+                <a href="#" onClick="window.open('{{ asset('storage/files/'.$candidatura->cv_path) }}'); return false;">{{ $candidatura->cv_path }}</a>
+                <a type ="button" class=" btn bi bi-eye btn-lg fs-3" onClick="window.open('{{ asset('storage/files/'.$candidatura->cv_path) }}'); return false;"></a>
+                <a type="button" class=" btn bi bi-download btn-lg fs-3" href="{{ asset('storage/files/'.$candidatura->cv_path) }}" download></a>
+            </div>        
         </td>
     </tr>
     @endforeach
@@ -72,7 +83,7 @@
 
 </div>
 
-</script>
+
 <!-- Scroll To Top Button -->
 <script>
 let mybutton = document.getElementById("ScrollToTop");
@@ -92,4 +103,26 @@ function topFunction() {
 }
 </script>
 
+<!-- bottone per resettare la ricerca -->
+<script>
+    $('#reset_ricerca').click(function () {
+        var areaInput=document.getElementById('ricerca');
+        areaInput.value='';
+        $('#TabellaCandidature tr').show();
+    });
+</script>
+
+<!-- filtro con area di input e bottone -->
+<script>
+$(document).ready(function(){
+    $("#ricerca").on("click", function() {
+    });
+    $("#button_ricerca").on("click", function() {
+        var value = $("#ricerca").val().toLowerCase();
+        $("#TabellaCandidature tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
+</script>
 @endsection

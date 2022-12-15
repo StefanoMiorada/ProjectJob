@@ -52,7 +52,7 @@
 <form class="needs-validation" novalidate name="candidaturaAnnuncio" method="post" enctype="multipart/form-data" action="{{ route('annuncio.inviaCandidatura', ['id' => $annuncio->id]) }}">
     @csrf
     <div class="form-group row mb-4">
-      <label for="letteraMotivazionale" class="col-sm-2 col-form-label">{{ trans('labels.letteraMotivazionale') }}</label>
+      <label for="letteraMotivazionale" class="col-sm-2 col-form-label obbligatorio">{{ trans('labels.letteraMotivazionale') }}</label>
       <div class="col-sm-9">
         <textarea type="letteraMotivazionale" name="letteraMotivazionale" class="form-control" id="letteraMotivazionale" placeholder="Scrivi qui la tua lettera motivazionale" rows="10" style="height:100%;" required></textarea>
         <div class="invalid-feedback">{{ trans('labels.letteraMotivazionaleObbligatoria') }}</div>
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="form-group row mb-4">
-      <label for="cv_path" class="col-sm-2 col-form-label">CV: </label>
+      <label for="cv_path" class="col-sm-2 col-form-label obbligatorio">Curriculum Vitae: </label>
       <div class="col-sm-9">
         <input type="file" class="form-control" name="cv_path" id="cv_path" required>
         <div class="invalid-feedback">{{ trans('labels.cvObbligatorio') }}</div>

@@ -119,6 +119,7 @@ class ControllerAnnunci extends Controller
             $is_azienda = $dl->getis_azienda($_SESSION["loggedName"]);
             if($is_azienda==1){
                 $dl->rimuoviAnnuncio($id);
+                Session::flash('successDelete', 'Here is your success message');
                 return Redirect::to(route('paginaAzienda.index'));
             }
             else{

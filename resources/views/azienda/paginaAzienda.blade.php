@@ -47,9 +47,13 @@
 <script>
     swal.fire("{{ trans('labels.okMessage') }}","{{ trans('labels.okMessageCreate') }}","success");
 </script>
+@elseif (session()->has('successDelete'))
+<script>
+    swal.fire("{{ trans('labels.okMessage') }}","Annuncio rimosso correttamente","success");
+</script>
 @endif
 <!-- Bottone scrollToTop -->
-<button class=" btn bi bi-arrow-up-square btn-lg" onclick="topFunction()" id="ScrollToTop" ></button>
+<button class=" btn bi bi-arrow-up-square btn-lg fs-1" onclick="topFunction()" id="ScrollToTop" ></button>
 
 <div class="container-fluid mb-5">
         <div class="container text-center mb-5">

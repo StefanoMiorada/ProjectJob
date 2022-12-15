@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="form-group row mb-3">
-      <label for="cv_path" class="col-sm-2 col-form-label obbligatorio">CV: </label>
+      <label for="cv_path" class="col-sm-2 col-form-label obbligatorio">Curriculum Vitae: </label>
       <div class="col-sm-5">
         <input type="file" class="form-control" required name="cv_path" id="cv_path">
         <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>

@@ -107,6 +107,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- registration form -->
                 <div class="tab-pane p-3 fade" id="register-form-pane" role="tabpanel" aria-labelledby="register-form-tab">
                     <form id="register-form" name="register-form" class="needs-validation" novalidate action="{{ route('user.register') }}" method="post">
@@ -125,7 +126,7 @@
                             </label>
                             <button type="button" class="btn bi bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="right" title="Per 'Azienda' si intende un utente che utilizzerà JobCamonica con lo scopo di inserire annunci di lavoro e consultare le candidature ricevute, se intendi candidarti a delel offerte di lavoro selezione 'utente generico'"></button>
                         </div>
-                        <div class="row mb-3">
+                        <div class="form-group row mb-3">
                             <input type="text" id="username" name="username" class="form-control" placeholder="Username" required/>
                             <div class="invalid-feedback" id="invalid-username">{{ trans('labels.campoObbligatorio') }}</div>
                         </div>

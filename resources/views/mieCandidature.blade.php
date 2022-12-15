@@ -60,7 +60,7 @@ Area Personale
                 <th>Annnucio di riferimento</th>
                 <th>luogo lavorativo dell'annuncio</th>
                 <th>Lettera motivazionale</th>
-                <th>Curriculum</th>
+                <th>Curriculum Vitae</th>
             </tr>
         @foreach($candidature as $candidatura)
             <tr>

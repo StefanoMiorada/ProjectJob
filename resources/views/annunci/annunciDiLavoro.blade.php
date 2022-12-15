@@ -109,9 +109,9 @@ Annunci di lavoro
                 <td class="col-8" style="word-wrap: break-word;min-width: 160px;max-width: 160px;white-space:normal;">
                     <div><h3><b>{{ $annuncio->posizione }}</b></h3></div>
                     <div><i class="bi bi-geo-alt"></i> {{ $annuncio->luogo }}</div>
-                    <div>{{ $annuncio->dettagli }}</div>
-                    <div><i></i>{{ $annuncio->richieste }}</div>
-                    <div><i><b>{{ trans('labels.contratto') }} </b></i> {{ $annuncio->tipo_contratto }}</div>
+                    <div><i><b>Dettagli: </b></i>{{ $annuncio->dettagli }}</div>
+                    <div class="pt-1"><i><b>Richieste: </b></i>{{ $annuncio->richieste }}</div>
+                    <div class="pt-1"><i><b>{{ trans('labels.contratto') }} </b></i> {{ $annuncio->tipo_contratto }}</div>
                 </td>
                 <td class="col-1">
                     @if($logged==false)

@@ -56,7 +56,7 @@
   @endif
   @csrf
     <div class="form-group row mb-3">
-      <label for="posizione" class="col-sm-2 col-form-label">{{ trans('labels.posizione') }}</label>
+      <label for="posizione" class="col-sm-2 col-form-label obbligatorio">{{ trans('labels.posizione') }}</label>
       <div class="col-sm-5">
         @if(isset($annuncio->id))
         <input type="posizione" class="form-control" required name="posizione" id="posizione" value="{{ $annuncio->posizione }}">
@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="form-group row mb-3">
-      <label for="luogo" class="col-sm-2 col-form-label">Luogo:</label>
+      <label for="luogo" class="col-sm-2 col-form-label obbligatorio">Luogo:</label>
       <div class="col-sm-5">
         @if(isset($annuncio->id))
         <input type="luogo"  class="form-control" required name="luogo" id="luogo" value="{{ $annuncio->luogo }}">
@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="form-group row mb-3">
-      <label for="dettagli" class="col-sm-2 col-form-label">{{ trans('labels.dettagli') }}</label>
+      <label for="dettagli" class="col-sm-2 col-form-label obbligatorio">{{ trans('labels.dettagli') }}</label>
       <div class="col-sm-9">
         @if(isset($annuncio->id))
         <textarea type="dettagli" name="dettagli" class="form-control" required id="dettagli" >{{ $annuncio->dettagli }}</textarea>
@@ -92,7 +92,7 @@
       </div>
     </div>
     <div class="form-group row mb-3">
-      <label for="richieste" class="col-sm-2 col-form-label">{{ trans('labels.richieste') }}</label>
+      <label for="richieste" class="col-sm-2 col-form-label obbligatorio">{{ trans('labels.richieste') }}</label>
       <div class="col-sm-9">
         @if(isset($annuncio->id))
         <textarea type="richieste" name="richieste" class="form-control" required id="richieste">{{ $annuncio->richieste }}</textarea>
@@ -104,7 +104,7 @@
       </div>
     </div>
     <div class="form-group row mb-3">
-      <label for="tipo_contratto" class="col-sm-2 col-form-label">{{ trans('labels.tipologiaContratto') }}</label>
+      <label for="tipo_contratto" class="col-sm-2 col-form-label obbligatorio">{{ trans('labels.tipologiaContratto') }}</label>
         <div class="col-sm-5">
           @if(isset($annuncio->id))
           <select type="tipo_contratto" name="tipo_contratto" id="tipo_contratto" required class="form-select" aria-label="Default select example">
