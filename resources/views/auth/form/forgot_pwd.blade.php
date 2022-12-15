@@ -13,7 +13,6 @@
                 </p>
                 <div class="form-outline">
                     <input type="email" id="typeEmail" class="form-control my-3" placeholder="Inserisci l'email" />
-
                 </div>
                 <a href="{{ route('recuperaPassword') }}" class="btn btn-primary w-100">Recupera password</a>
                 <div class="d-flex justify-content-end mt-4">
