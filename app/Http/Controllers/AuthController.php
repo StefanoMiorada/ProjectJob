@@ -84,15 +84,12 @@ class AuthController extends Controller
         return Redirect::to(route('home'));
     }
 
-    public function ajaxCheckUsername(Request $request){
+    public function ajaxUsername(Request $request){
         $dl = new DataLayer();
-        
-        if($dl->findUsername($request))
-        {
-            $response = array('found'=>true);
-        } else {
-            $response = array('found'=>false);
-        }
+        $username = $request->input("username");
+
+        $response = array("valid" => !$dl->findUsername($username));
+
         return response()->json($response);
     }
 

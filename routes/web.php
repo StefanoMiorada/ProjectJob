@@ -34,6 +34,7 @@ Route::middleware(['lang'])->group(function () {
         Route::post('register', [AuthController::class, 'registration'])->name('user.register');
         Route::post('{id}/update', [ControllerUser::class, 'update'])->name('user.update');
         Route::get("ajaxLogin", [AuthController::class, "ajaxLogin"])->name("user.ajaxLogin");
+        Route::get("ajaxUsername", [AuthController::class, "ajaxUsername"])->name("user.ajaxUsername");
     });
     Route::resource('user', ControllerUser::class);
 

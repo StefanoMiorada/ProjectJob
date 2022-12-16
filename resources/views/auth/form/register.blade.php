@@ -23,13 +23,13 @@
                 title="Per 'Azienda' si intende un utente che utilizzerà JobCamonica con lo scopo di inserire annunci di lavoro e consultare le candidature ricevute, se intendi candidarti a delle offerte di lavoro selezione 'utente generico'"></span>
         </div>
 
-        <div class="form-group row mb-3">
+        <div class="form-group row mb-3" id="registration_username_div">
             <input type="text" id="registration_username" name="username" class="form-control" placeholder="Username" required />
             <div class="invalid-feedback" id="invalid-username">{{ trans('labels.campoObbligatorio') }}</div>
         </div>
 
-        <div class="row mb-3">
-            <input type="email" name="email" class="form-control" placeholder="email" required />
+        <div class="row mb-3" id="email_div">
+            <input type="email" id="email" name="email" class="form-control" placeholder="email" required />
             <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }} {{ trans('labels.emailValida') }}
             </div>
         </div>
@@ -42,32 +42,32 @@
 
         <div class="row mb-3" id="div_cognome">
             <input type="text" id="cognome" name="cognome" class="form-control" placeholder="Cognome"
-                value="" />
+                value="" required/>
             <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
         </div>
 
         <div class="row mb-3" id="div_nome_azienda">
             <input type="text" id="nome_azienda" name="nome_azienda" class="form-control" placeholder="Nome Azienda"
-                value="" />
-            <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
-        </div>
-
-        <div class="row mb-3">
-            <input type="password"id="registration_password" name="password" class="form-control" placeholder="Password"
                 value="" required />
             <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
         </div>
 
-        <div class="row mb-3">
-            <input type="password" id="confirm-password"name="confirm-password" class="form-control"
+        <div class="row mb-3" id="registration_password_div">
+            <input type="password" id="registration_password" name="password" class="form-control" placeholder="Password"
+                value="" required />
+            <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
+        </div>
+
+        <div class="row mb-3" id="confirm-password_div">
+            <input type="password" id="confirm-password" name="confirm-password" class="form-control"
                 placeholder="{{ trans('labels.confirmPassword') }}" value="" required />
             <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
-            <div id="div_password-incorrect"></div>
         </div>
 
         <div class="row mb-3">
-            <button type="submit" id="register-submit"name="register-submit"
-                class="btn btn-primary">{{ trans('labels.registerNow') }}</button>
+            <input type="submit" id="register-submit" name="register-submit"
+                class="form-control btn btn-primary" value="{{ trans('labels.registerNow') }}"
+                onclick="event.preventDefault(); checkRegister('{{ $lang }}');">
         </div>
 
         <div class="row mb-3">

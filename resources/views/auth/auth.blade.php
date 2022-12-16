@@ -14,9 +14,11 @@
     <script src="{{ url('/') }}/js/bootstrap.min.js"></script>
     <script src="{{ url('/') }}/js/myScript.js"></script>
     <script src="{{ url('/') }}/js/form_check/loginCheck.js"></script>
+    <script src="{{ url('/') }}/js/form_check/registrationCheck.js"></script>
     <script>
         $( document ).ready(function() {
-            formRegistrazioneUtente();
+            $("#div_nome_azienda").hide();
+            checkRegister = checkUtente
         });  
     </script>
 
