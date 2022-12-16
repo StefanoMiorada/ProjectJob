@@ -1,29 +1,37 @@
 <div class="tab-pane p-4 fade show active" id="login-form-pane" role="tabpanel" aria-labelledby="login-form-tab">
     @if (isset($source))
         @if ($source == 'paginaAzienda')
-            <form id="login-form" class="needs-validation" novalidate
+            <form name="login-form" class="needs-validation" novalidate
                 action="{{ route('user.login', ['source' => 'paginaAzienda']) }}" method="post">
         @endif
         @if ($source == 'annunci')
-            <form id="login-form" class="needs-validation" novalidate
+            <form name="login-form" class="needs-validation" novalidate
                 action="{{ route('user.login', ['source' => 'annunci']) }}" method="post">
         @endif
         @if ($source == 'home')
-            <form id="login-form" class="needs-validation" novalidate
+            <form name="login-form" class="needs-validation" novalidate
                 action="{{ route('user.login', ['source' => 'home']) }}" method="post">
         @endif
     @endif
     @csrf
     <div class="row mb-3">
-        <input type="text" name="username" class="form-control" placeholder="Username" required />
-        <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
+        <div class="form-group" id="username_div">
+            <input id="username" type="text" name="username" class="form-control" placeholder="Username">
+            <span class="invalid-feedback">{{ trans("labels.inserireUsername") }}</span>
+        </div>
     </div>
     <div class="row mb-3">
-        <input type="password" name="password" class="form-control" placeholder="Password" required />
-        <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
+        <div class="form-group" id="password_div">
+            <input id="password" type="password" name="password" class="form-control" placeholder="Password">
+            <span class="invalid-feedback">{{ trans("labels.inserirePassword") }}</span>
+        </div>
     </div>
-    <div class="row">
-        <button type="submit" name="login-submit" class="btn btn-primary">{{ trans('labels.login') }}</button>
+    <div class="row mb-3">
+        <div class="form-group">
+            <input type="submit" name="login-submit" class="form-control btn btn-primary"
+                value="{{ trans('labels.login') }}"
+                onclick="event.preventDefault(); checkLogin('{{ $lang }}');">
+        </div>
     </div>
     <div class="form-group">
         <div class="text-center">

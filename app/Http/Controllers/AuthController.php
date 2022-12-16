@@ -9,20 +9,21 @@ use Illuminate\Support\Facades\Redirect;
 class AuthController extends Controller
 {
     public function authentication($source,$message=null) {
+        $current_view = view("auth.auth")->with("lang", Session::get("language"));
 
        // if(isset($source)){
             if($source == "paginaAzienda"){
-            return view('auth.auth')->with('source','paginaAzienda');
+            return $current_view->with('source','paginaAzienda');
             }
             if ($source == 'annunci' & $message=='True'){
-                return view('auth.auth')->with('source','annunci')->with('message','Per poterti candidare ad un annuncio devi effettuare il login.');
+                return $current_view->with('source','annunci')->with('message','Per poterti candidare ad un annuncio devi effettuare il login.');
             }
             elseif($source == 'annunci'){
-                return view('auth.auth')->with('source','annunci');
+                return $current_view->with('source','annunci');
             }  
             
             if($source == 'home'){
-                return view('auth.auth')->with('source','home');
+                return $current_view->with('source','home');
             }  
         // }
         // return view('auth.auth');
@@ -92,6 +93,21 @@ class AuthController extends Controller
         } else {
             $response = array('found'=>false);
         }
+        return response()->json($response);
+    }
+
+    public function ajaxLogin(Request $request) {
+        $dl = new Datalayer();
+        $username = $request->input("username");
+        $password = $request->input("password");
+
+        $response = array("valid" => $dl->validUser($username, $password));
+
+        if ($response["valid"]) {
+            Session::put("logged", true);
+            Session::put("loggedName", $username);
+        }
+
         return response()->json($response);
     }
 

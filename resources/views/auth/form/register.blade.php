@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group row mb-3">
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required />
+            <input type="text" id="registration_username" name="username" class="form-control" placeholder="Username" required />
             <div class="invalid-feedback" id="invalid-username">{{ trans('labels.campoObbligatorio') }}</div>
         </div>
 
@@ -53,7 +53,7 @@
         </div>
 
         <div class="row mb-3">
-            <input type="password"id="password" name="password" class="form-control" placeholder="Password"
+            <input type="password"id="registration_password" name="password" class="form-control" placeholder="Password"
                 value="" required />
             <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
         </div>

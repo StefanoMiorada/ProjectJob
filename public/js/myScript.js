@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 function checkUsername(){
-    username=$('#username');
+    username=$('#registration_username');
     username_msg = $("#invalid-username");
     $.ajax({
 

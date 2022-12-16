@@ -13,6 +13,7 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="{{ url('/') }}/js/bootstrap.min.js"></script>
     <script src="{{ url('/') }}/js/myScript.js"></script>
+    <script src="{{ url('/') }}/js/form_check/loginCheck.js"></script>
     <script>
         $( document ).ready(function() {
             formRegistrazioneUtente();

@@ -24,27 +24,37 @@ Route::middleware(['lang'])->group(function () {
     //Route::get('/home', function () {return redirect(route('home'));});
     Route::get('/home', [FrontController::class, 'getHome']);
 
-    //per gestire il ritorno sulla pag precedente al login
-    Route::get('/user/login/{source}/{message?}', [AuthController::class, 'authentication'])->name('user.login');
-    Route::post('/user/login/{source}/{message?}', [AuthController::class, 'login'])->name('user.login');
-    
-    Route::get('/user/recuperaPassword', [AuthController::class, 'recuperaPassword'])->name('recuperaPassword');
-    Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout');
-    Route::post('/user/register', [AuthController::class, 'registration'])->name('user.register');
-    Route::resource('/paginaAzienda', ControllerPaginaAzienda::class);
+    Route::group(["prefix" => "user"], function () { 
+        //per gestire il ritorno sulla pag precedente al login
+        Route::get('login/{source}/{message?}', [AuthController::class, 'authentication'])->name('user.login');
+        Route::post('login/{source}/{message?}', [AuthController::class, 'login'])->name('user.login');
+        
+        Route::get('recuperaPassword', [AuthController::class, 'recuperaPassword'])->name('recuperaPassword');
+        Route::get('logout', [AuthController::class, 'logout'])->name('user.logout');
+        Route::post('register', [AuthController::class, 'registration'])->name('user.register');
+        Route::post('{id}/update', [ControllerUser::class, 'update'])->name('user.update');
+        Route::get("ajaxLogin", [AuthController::class, "ajaxLogin"])->name("user.ajaxLogin");
+    });
     Route::resource('user', ControllerUser::class);
-    Route::resource('annunci', ControllerAnnunci::class);
+
+    Route::group(["prefix" => "candidature"], function () {
+        Route::get('{id}/destroy', [ControllerCandidature::class, 'destroy'])->name('candidatura.destroy');
+        Route::get('{id}/destroy/confirm', [ControllerCandidature::class, 'confirmDestroy'])->name('candidatura.confirmDestroy');
+        Route::post('{id}/update', [ControllerCandidature::class, 'update'])->name('candidatura.update');
+    });
     Route::resource('candidature', ControllerCandidature::class);
-    Route::get('/candidature/{id}/destroy', [ControllerCandidature::class, 'destroy'])->name('candidatura.destroy');
-    Route::get('/candidature/{id}/destroy/confirm', [ControllerCandidature::class, 'confirmDestroy'])->name('candidatura.confirmDestroy');
-    Route::post('/candidature/{id}/update', [ControllerCandidature::class, 'update'])->name('candidatura.update');
-    Route::post('/user/{id}/update', [ControllerUser::class, 'update'])->name('user.update');
-    Route::post('/annunci/{id}/update', [ControllerAnnunci::class, 'update'])->name('annuncio.update');
-    Route::get('/annunci/{id}/destroy', [ControllerAnnunci::class, 'destroy'])->name('annuncio.destroy');
-    Route::get('/annunci/{id}/destroy/confirm', [ControllerAnnunci::class, 'confirmDestroy'])->name('annuncio.confirmDestroy');
-    Route::get('/annunci/{id}/dettagli/candidature', [ControllerAnnunci::class, 'dettagliCandidature'])->name('annuncio.dettagliCandidature');
-    Route::get('/annunci/{id}/candidati', [ControllerAnnunci::class, 'candidaturaAnnuncio'])->name('annuncio.candidati');
-    Route::post('/annunci/{id}/inviaCandidatura', [ControllerAnnunci::class, 'inviaCandidatura'])->name('annuncio.inviaCandidatura');
+    
+    Route::resource('/paginaAzienda', ControllerPaginaAzienda::class);
+
+    Route::group(["prefix" => "annunci"], function () {
+        Route::post('{id}/update', [ControllerAnnunci::class, 'update'])->name('annuncio.update');
+        Route::get('{id}/destroy', [ControllerAnnunci::class, 'destroy'])->name('annuncio.destroy');
+        Route::get('{id}/destroy/confirm', [ControllerAnnunci::class, 'confirmDestroy'])->name('annuncio.confirmDestroy');
+        Route::get('{id}/dettagli/candidature', [ControllerAnnunci::class, 'dettagliCandidature'])->name('annuncio.dettagliCandidature');
+        Route::get('{id}/candidati', [ControllerAnnunci::class, 'candidaturaAnnuncio'])->name('annuncio.candidati');
+        Route::post('{id}/inviaCandidatura', [ControllerAnnunci::class, 'inviaCandidatura'])->name('annuncio.inviaCandidatura');
+    });
+    Route::resource('annunci', ControllerAnnunci::class);
     
     //Route::get('/ajaxUsername', [AuthController::class, 'ajaxCheckUsername']);
 });

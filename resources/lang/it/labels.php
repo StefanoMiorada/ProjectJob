@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'inserireUsername' => "Inserire username valido",
+    'inserirePassowrd' => "Inserire password",
     'annunciDiLavoro'=>'Annunci di Lavoro',
     'paginaPersonaleAzienda'=>'Pagina Personale Azienda',
     'welcome' => 'Benvenuto',
