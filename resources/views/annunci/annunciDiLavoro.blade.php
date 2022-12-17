@@ -55,36 +55,30 @@
         </script>
     @endif
     @if ($listaAnnunci->count() == 0)
-        <div class="container text-center mb-5">
+        <div class="row text-center">
             <h3>{{ trans('labels.nessunAnnuncio') }}</h3>
         </div>
     @else
-        <div class="container mb-3">
-            <div class="row">
-                <div class="col text-center">
-                    <h2>{{ trans('labels.ricercaAnnuncioLavoro') }}</h2>
-                </div>
+        <div class="row">
+            <div class="col text-center">
+                <h2>{{ trans('labels.ricercaAnnuncioLavoro') }}</h2>
             </div>
-            <div class="row ">
-                <div class="col-md-6 offset-md-2">
-                    <input type="text" id="ricerca" class="form-control"
-                        placeholder="{{ trans('labels.filtroRicerca') }}" onkeyup="lancia_ricerca()">
-                </div>
-                <div class="col-md-3">
-                    <a id="reset_ricerca" type="button" class="btn btn-outline-primary" onclick="reset_ricerca()"><i
-                            class="bi bi-arrow-clockwise"></i> Reset</a>
-                </div>
-            </div>
-
         </div>
-        <!-- Bottone scrollToTop -->
-        <button class=" btn bi bi-arrow-up-square fs-1" onclick="topFunction()" id="ScrollToTop"></button>
+        <div class="row">
 
-        <div class="container-fluid mb-5">
-            <div class="row">
-
-                <!-- Sezione filtri sinistra -->
-                <div class="col-md-3 border-end radio-group">
+            <!-- Sezione filtri e ricerca sinistra -->
+            <div class="col-md-3 border-end radio-group" style="height:100%">
+                <div class="row">
+                    <div class="col-md-9">
+                        <input type="text" id="ricerca" class="form-control"
+                            placeholder="{{ trans('labels.filtroRicerca') }}" onkeyup="lancia_ricerca()">
+                    </div>
+                    <div class="col-md-3">
+                        <a id="reset_ricerca" type="button" class="btn btn-outline-primary" onclick="reset_ricerca()"><i
+                                class="bi bi-arrow-clockwise"></i></a>
+                    </div>
+                </div>
+                <div class="row">
                     <table>
                         @foreach ($tipo_contratto as $contratto)
                             @include('components.filtro_contratto', ['contratto' => $contratto])
@@ -93,17 +87,18 @@
                     <div class="mt-2">
                         <a type="button" class="btn btn-outline-primary" id="reset" onclick="reset_filters()">Reset</a>
                     </div>
-
                 </div>
+            </div>
 
-                <!-- Sezione principale con tabella annunci -->
-                <div class="col-md-9 text-left ">
-                    <table class="table table-hover" id="tabellaAnnunci">
-                        @foreach ($listaAnnunci as $annuncio)
-                            @include('components.annuncio', ['annuncio' => $annuncio])
-                        @endforeach
-                    </table>
-                </div>
+            <!-- Sezione principale con tabella annunci -->
+            <div class="col-md-9 text-left overflow-auto" style="height:80vh;" id="annunci_div">
+                <table class="table table-hover" id="tabellaAnnunci">
+                    @foreach ($listaAnnunci as $annuncio)
+                        @include('components.annuncio', ['annuncio' => $annuncio])
+                    @endforeach
+                </table>
+                <!-- Bottone scrollToTop -->
+                <button class="btn bi bi-arrow-up-square fs-1" id="ScrollToTop"></button>
             </div>
         </div>
     @endif
@@ -111,22 +106,21 @@
     <script>
         let mybutton = document.getElementById("ScrollToTop");
         // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {
-            scrollFunction()
-        };
+        $("#annunci_div").scroll(function() {
+            scrollFunction($(this))
+        });
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        function scrollFunction(element) {
+            if (element.scrollTop() > 20 || element.scrollTop() > 20) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
             }
         }
         // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+        $("#ScrollToTop").click(function () {
+            $("#annunci_div").scrollTop(0);
+        });
     </script>
 
 @endsection
