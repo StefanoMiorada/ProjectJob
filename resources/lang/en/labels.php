@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'nessunAnnuncioTrovato' => 'No job advertisement found',
     'inserirePassword' => "Insert password",
     'inserireUsername' => "Insert valid username",
     'annunciDiLavoro'=>'Job Advertisements',

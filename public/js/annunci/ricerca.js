@@ -43,6 +43,7 @@ function apply_filter(element, filter) {
 }
 
 function lancia_ricerca() {
+    $("#nessun_annuncio_tr").hide();
     var input = $("#ricerca").val().trim().toLowerCase();
     var filter = ""
     if ($(":radio:checked").val()) {
@@ -62,6 +63,11 @@ function lancia_ricerca() {
     $(".annuncio_tr:visible").map(function() {
         apply_filter($(this), filter)
     })
+
+    var count_visibles = $(".annuncio_tr:visible").size()
+    if (count_visibles <= 0) {
+        $("#nessun_annuncio_tr").show();
+    }
 }
 
 function reset_filters() {

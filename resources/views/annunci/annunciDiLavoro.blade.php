@@ -96,6 +96,7 @@
                     @foreach ($listaAnnunci as $annuncio)
                         @include('components.annuncio', ['annuncio' => $annuncio])
                     @endforeach
+                    <tr id="nessun_annuncio_tr" class="text-center"><td><h3>{{ trans('labels.nessunAnnuncioTrovato') }}</h3></td></tr>
                 </table>
                 <!-- Bottone scrollToTop -->
                 <button class="btn bi bi-arrow-up-square fs-1" id="ScrollToTop"></button>
