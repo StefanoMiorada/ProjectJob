@@ -69,7 +69,7 @@ return [
     'registrati'=>'Registrati',
     'emailValida'=>'e l\'email deve essere un indirizzo email valido',
     'save'=>'Salva',
-    'filtroRicerca'=>'Ricerca per luogo, titolo o parola',
+    'filtroRicerca'=>'Ricerca per parola chiave',
     'statistiche'=>'Le statistiche di JobCamonica:',
     'aziende'=>'Aziende',
     'utenti'=>'Utenti',

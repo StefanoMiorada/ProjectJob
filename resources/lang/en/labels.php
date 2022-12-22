@@ -68,7 +68,7 @@ return [
     'registrati'=>'Sign in',
     'emailValida'=>'and the email must be a valid email address',
     'save'=>'Save',
-    'filtroRicerca'=>'Search by job title, location or keyword',
+    'filtroRicerca'=>'Search by keyword',
     'statistiche'=>'JobCamonica stats:',
     'aziende'=>'Companies',
     'utenti'=>'Users',

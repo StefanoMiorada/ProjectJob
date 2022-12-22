@@ -110,7 +110,7 @@
                     <div>{{ $annuncio->richieste }}</div>
                     <div><b><i>{{ trans('labels.contratto' )}}</i></b> {{ $annuncio->tipo_contratto }}</div>
                 </td>
-                <td colspan="2">{{ trans('labels.candidature')}}: {{$annuncio->candidature_annuncio()->count()}}</td>
+                <td class="text-center align-middle" colspan="2"><a type="button" class="btn btn-outline-primary" href="{{ route('annuncio.dettagliCandidature',['id' => $annuncio->id]) }}">{{ trans('labels.candidature')}}: {{$annuncio->candidature_annuncio()->count()}}</a></td>
             </tr>
             @endforeach
         </table>
