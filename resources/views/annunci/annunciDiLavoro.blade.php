@@ -79,13 +79,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <table>
-                        @foreach ($tipo_contratto as $contratto)
-                            @include('components.filtro_contratto', ['contratto' => $contratto])
-                        @endforeach
-                    </table>
-                    <div class="mt-2">
-                        <a type="button" class="btn btn-outline-primary" id="reset" onclick="reset_filters()">Reset</a>
+                    <div class="col-md-12">
+                        <table>
+                            @foreach ($tipo_contratto as $contratto)
+                                @include('components.filtro_contratto', ['contratto' => $contratto])
+                            @endforeach
+                        </table>
+                        <div class="mt-2">
+                            <a type="button" class="btn btn-outline-primary" id="reset"
+                                onclick="reset_filters()">Reset</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,7 +99,11 @@
                     @foreach ($listaAnnunci as $annuncio)
                         @include('components.annuncio', ['annuncio' => $annuncio])
                     @endforeach
-                    <tr id="nessun_annuncio_tr" class="text-center"><td><h3>{{ trans('labels.nessunAnnuncioTrovato') }}</h3></td></tr>
+                    <tr id="nessun_annuncio_tr" class="text-center">
+                        <td>
+                            <h3>{{ trans('labels.nessunAnnuncioTrovato') }}</h3>
+                        </td>
+                    </tr>
                 </table>
                 <!-- Bottone scrollToTop -->
                 <button class="btn bi bi-arrow-up-square fs-1" id="ScrollToTop"></button>
@@ -119,7 +126,7 @@
             }
         }
         // When the user clicks on the button, scroll to the top of the document
-        $("#ScrollToTop").click(function () {
+        $("#ScrollToTop").click(function() {
             $("#annunci_div").scrollTop(0);
         });
     </script>
