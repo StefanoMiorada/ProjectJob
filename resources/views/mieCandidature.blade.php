@@ -47,6 +47,10 @@ Area Personale
 <script>
     swal.fire("{{ trans('labels.okMessage') }}","{{ trans('labels.okMessageEdit') }}","success");
 </script>
+@elseif (session()->has('successEditUserData'))
+<script>
+    swal.fire("{{ trans('labels.okMessage') }}","Dati perosnali modificati correttamente","success");
+</script>
 @endif
     <div class="container text-center mb-5">
         <a type="button" class="btn btn-outline-primary" href="{{route('user.edit', ['user' => $utente->id])}}"><i class="bi bi-pencil-square"></i> Modifica dati personali</a>

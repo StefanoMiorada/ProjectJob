@@ -32,7 +32,7 @@ Route::middleware(['lang'])->group(function () {
         Route::get('recuperaPassword', [AuthController::class, 'recuperaPassword'])->name('recuperaPassword');
         Route::get('logout', [AuthController::class, 'logout'])->name('user.logout');
         Route::post('register', [AuthController::class, 'registration'])->name('user.register');
-        Route::post('{id}/update', [ControllerUser::class, 'update'])->name('user.update');
+        Route::post('{user}/update', [ControllerUser::class, 'update'])->name('user.updateDati');
         Route::get("ajaxLogin", [AuthController::class, "ajaxLogin"])->name("user.ajaxLogin");
         Route::get("ajaxUsername", [AuthController::class, "ajaxUsername"])->name("user.ajaxUsername");
     });

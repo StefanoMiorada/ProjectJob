@@ -31,13 +31,13 @@ class ControllerUser extends Controller
             if ($is_azienda==1){
                 $dl->modificaDatiAzienda($id, $request->input('Username'), $request->input('Email')
                                         , $request->input('NomeAzienda'));
-                Session::flash('successEdit', 'Here is your success message');
+                Session::flash('successEditUserData', 'Here is your success message');
                 return Redirect::to(route('paginaAzienda.index'));
             }
             else{
                 $dl->modificaDatiUtente($id, $request->input('Username'), $request->input('Email')
                                         , $request->input('Nome'), $request->input('Cognome'));
-                Session::flash('successEdit', 'Here is your success message');
+                Session::flash('successEditUserData', 'Here is your success message');
                 return Redirect::to(route('candidature.index'));
             }
         }

@@ -51,6 +51,10 @@
 <script>
     swal.fire("{{ trans('labels.okMessage') }}","Annuncio rimosso correttamente","success");
 </script>
+@elseif (session()->has('successEditUserData'))
+<script>
+    swal.fire("{{ trans('labels.okMessage') }}","Dati perosnali modificati correttamente","success");
+</script>
 @endif
 <!-- Bottone scrollToTop -->
 <button class=" btn bi bi-arrow-up-square btn-lg fs-1" onclick="topFunction()" id="ScrollToTop" ></button>

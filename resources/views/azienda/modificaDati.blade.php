@@ -45,7 +45,7 @@
 
 @section('corpo')
 <div class="container-fluid">
-    <form class="needs-validation" novalidate name="modificaDati" method="post" action="{{ route('user.update', ['id' => $utente->id]) }}">
+    <form class="needs-validation" novalidate name="modificaDati" method="post" action="{{ route('user.updateDati', ['user' => $utente->id]) }}">
   @csrf
   <div class="form-group row mb-3">
       <label for="Username" class="col-sm-2 col-form-label obbligatorio">Username:</label>
