@@ -12,7 +12,7 @@ return [
     'homeBodyFirstPart'=>'Do you want to find or offer job in Camonica Valley?',
     'homeBodySecondPart'=>'This website was created in order to connect companies who provide jobs and jobseekers',
     'accedi/registrati'=>'Login/Register',
-    'ricercaAnnuncioLavoro'=>'Find job advertisement',
+    'ricercaAnnuncioLavoro'=>'All job advertisements',
     'cerca'=>'Find',
     'nessunAnnuncio'=>'No advertisements have been added yet',
     'contratto'=>'Job contract:',

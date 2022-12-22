@@ -13,7 +13,7 @@ return [
     'homeBodySecondPart'=>'Questo sito è pensato per mettere in comunicazione aziende
     che offrono lavoro e persone che sono alla ricerca di un impiego',
     'accedi/registrati'=>'Accedi/Registrati',
-    'ricercaAnnuncioLavoro'=>'Ricerca annuncio di lavoro',
+    'ricercaAnnuncioLavoro'=>'Tutti gli annunci di lavoro',
     'cerca'=>'Cerca',
     'nessunAnnuncio'=>'Non è stato ancora inserito nessun annuncio di lavoro',
     'contratto'=>'Contratto:',

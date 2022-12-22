@@ -59,16 +59,17 @@
             <h3>{{ trans('labels.nessunAnnuncio') }}</h3>
         </div>
     @else
-        <div class="row">
+        <!-- <div class="row">
             <div class="col text-center">
                 <h2>{{ trans('labels.ricercaAnnuncioLavoro') }}</h2>
             </div>
-        </div>
+        </div> -->
         <div class="row">
 
             <!-- Sezione filtri e ricerca sinistra -->
             <div class="col-md-3 border-end radio-group" style="height:100%">
                 <div class="row">
+                    <h4>Filtri per annunci di lavoro:</h4>
                     <div class="col-md-9">
                         <input type="text" id="ricerca" class="form-control"
                             placeholder="{{ trans('labels.filtroRicerca') }}" onkeyup="lancia_ricerca()">
