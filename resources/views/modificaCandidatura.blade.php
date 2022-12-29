@@ -42,7 +42,7 @@
     <div class="form-group row mb-3">
       <label for="lettera motivazionale" class="col-sm-2 col-form-label obbligatorio">Lettera motivazionale: </label>
       <div class="col-sm-5">
-        <textarea type="lettera_motivazionale" class="form-control" required name="lettera_motivazionale" id="lettera_motivazionale" rows="10">{{ $candidatura->lettera_motivazionale }}</textarea>
+      <textarea type="letteraMotivazionale" name="letteraMotivazionale" id="letteraMotivazionale" class="form-control" required name="lettera_motivazionale" id="lettera_motivazionale" rows="10"><?php echo ( $candidatura->lettera_motivazionale )?></textarea>
         <div class="invalid-feedback">{{ trans('labels.campoObbligatorio') }}</div>
       </div>
     </div>
