@@ -83,7 +83,7 @@ class ControllerCandidature extends Controller
             $fileNameToStore = $filename . '_' . time() . '.' . $extension; 
             $path = $request->file('cv_path')->storeAs('public/files', $fileNameToStore);
 
-            $dl->modificaCandidatura($id, $request->input('lettera_motivazionale'),$fileNameToStore);
+            $dl->modificaCandidatura($id, $request->input('letteraMotivazionale'),$fileNameToStore);
             Session::flash('successEdit', 'Here is your success message');
             return Redirect::to(route('candidature.index'));
         }

@@ -79,7 +79,7 @@ Area Personale
                     @endforeach
                 </td>
                 <td class="col-4">
-                    <div>{{ $candidatura->lettera_motivazionale }}</div>
+                    <div><?php echo($candidatura->lettera_motivazionale)?></div>
                 </td>
                 <td class="col-2">
                     <div><a href="#" onClick="window.open('{{ asset('storage/files/'.$candidatura->cv_path) }}'); return false;">{{ $candidatura->cv_path }}</a></div>
